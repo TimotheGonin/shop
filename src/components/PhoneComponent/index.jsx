@@ -1,5 +1,28 @@
 import React from "react";
 import phone from "../../images/phone.png";
+import { useSelector } from "react-redux";
+// import { buyPhone } from "../../redux/phone/actionPhone";
+
+const PhoneComponent = () => {
+	const phones = useSelector((state) => state.phones);
+
+	return (
+		<div className="container">
+			<img src={phone} alt="phone" />
+			<p>
+				Disponibilité:
+				<span id="count">{phones}</span>
+			</p>
+			<button>Acheter</button>
+		</div>
+	);
+};
+
+export default PhoneComponent;
+
+//WITHOUT HOOKS
+/*import React from "react";
+import phone from "../../images/phone.png";
 import { connect } from "react-redux";
 import { buyPhone } from "../../redux/phone/actionPhone";
 
@@ -29,4 +52,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhoneComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneComponent);*/
