@@ -3,8 +3,8 @@ import phone from "../../images/phone.png";
 import { useSelector, useDispatch } from "react-redux";
 import { buyPhone } from "../../redux/phone/actionPhone";
 
-const PhoneComponent = () => {
-	const phones = useSelector((state) => state.phones);
+const PhoneContainer = () => {
+	const phones = useSelector((state) => state.phone.phones);
 	const dispatch = useDispatch();
 
 	return (
@@ -19,7 +19,7 @@ const PhoneComponent = () => {
 	);
 };
 
-export default PhoneComponent;
+export default PhoneContainer;
 
 //WITHOUT HOOKS
 /*import React from "react";
@@ -43,7 +43,7 @@ const PhoneComponent = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		phones: state.phones,
+		phones: state.phone.phones,
 	};
 };
 
