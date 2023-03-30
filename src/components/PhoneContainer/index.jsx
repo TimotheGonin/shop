@@ -8,8 +8,6 @@ const PhoneContainer = () => {
 	const phones = useSelector((state) => state.phone.phones);
 	const dispatch = useDispatch(totalPhone);
 
-	console.log(totalPhone);
-
 	return (
 		<div className="container">
 			<img src={phone} alt="phone" />
