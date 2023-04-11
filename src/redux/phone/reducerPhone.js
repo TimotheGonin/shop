@@ -1,5 +1,6 @@
 import { BUY_PHONE } from "./type";
 import { CHANGE_PHONE_COLOR } from "../admin/type";
+import produce from "immer";
 
 const initialStatePhone = {
 	brand: "Apple iPhone",
@@ -15,19 +16,25 @@ const initialStatePhone = {
 const phoneReducer = (state = initialStatePhone, action) => {
 	switch (action.type) {
 		case BUY_PHONE:
-			return {
-				...state,
-				phones: state.phones - action.payload,
-			};
+			// return {
+			// 	...state,
+			// 	phones: state.phones - action.payload,
+			// };
+			return produce(state, (draft) => {
+				draft.phones -= action.payload;
+			});
 
 		case CHANGE_PHONE_COLOR:
-			return {
-				...state,
-				infos: {
-					...state.infos,
-					color: action.payload,
-				},
-			};
+			// return {
+			// 	...state,
+			// 	infos: {
+			// 		...state.infos,
+			// 		color: action.payload,
+			// 	},
+			// };
+			return produce(state, (draft) => {
+				draft.infos.color = action.payload;
+			});
 
 		default:
 			return state;
