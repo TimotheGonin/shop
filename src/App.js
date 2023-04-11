@@ -1,5 +1,6 @@
 import PhoneContainer from "./components/PhoneContainer";
 import TvContainer from "./components/TvContainer";
+import AdminContainer from "./components/AdminContainer";
 import CommentsContainer from "./components/CommentsContainer";
 import store from "./redux/store";
 import { Provider } from "react-redux";
@@ -11,6 +12,7 @@ function App() {
 				<PhoneContainer />
 				<TvContainer />
 			</div>
+			<AdminContainer />
 			<CommentsContainer />
 		</Provider>
 	);

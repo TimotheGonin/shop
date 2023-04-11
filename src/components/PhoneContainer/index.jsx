@@ -5,15 +5,14 @@ import { buyPhone } from "../../redux/phone/actionPhone";
 
 const PhoneContainer = () => {
 	const [totalPhone, setTotalPhone] = useState(1);
-	const phones = useSelector((state) => state.phone.phones);
+	const { infos, phones } = useSelector((state) => state.phone);
 	const dispatch = useDispatch(totalPhone);
 
 	return (
 		<div className="container">
 			<img src={phone} alt="phone" />
 			<p>
-				Disponibilité:
-				<span id="count">{phones}</span>
+				Disponibilité: {phones} | Couleur: {infos.color}
 			</p>
 			<div className="btnContainer">
 				<button onClick={() => dispatch(buyPhone(totalPhone))}>Acheter</button>
